@@ -3,6 +3,17 @@
 ## icoFoam-Reference - Reference Solution for Cylinder
 To properly run the reference simulation, you should consider the following:
 
+### 0 - Removing old data
+```bash
+foamListTimes -rm
+rm -r postProcessing
+```
+
+It might also be necessary to remove the VTK file, if that is present.
+```
+rm -r VTK
+```
+
 ### 1 - Creating the blockMesh
 When initializing the blockMesh I find it better, especially considering we're going to work on multiple meshes, that we do not use:
 
