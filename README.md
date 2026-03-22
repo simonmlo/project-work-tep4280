@@ -59,6 +59,7 @@ setFields
 ### Proper icoFoam-Reference Pre-Processing
 ```bash
 blockMesh -dict caseDict/blockMeshDict		# Creates the correct mesh
+transformPoints -scale "(x y z")		# Scales the mesh
 checkMesh					# Important to check the blockMesh
 setFields					# Initializes the velocity field
 ```
