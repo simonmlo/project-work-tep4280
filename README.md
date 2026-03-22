@@ -27,6 +27,28 @@ This initializes the previous blockMeshDict used in the original icoFoam cavity 
 blockMesh -dict caseDict/blockMeshDict
 ```
 
+#### Quick sidenote
+I came across a fascinating function in OpenFoam
+
+```bash
+transformPoints -scale "(x y z)"
+```
+
+This is interesting because it simplifies the meshing significantly! It basically stretches the mesh in a desired direction. In less than 5 minutes I was able to simulate three cases:
+
+1. The Reference Cylinder - Drag Coefficient = 2.706
+
+2. A long Oval - Drag Coefficient = 1.116
+```bash
+transformPoints -scale "(1 0.5 1)"
+```
+
+3. A tall Oval - Drag Coefficient = 5.971
+```bash
+transformPoints -scale "(1 1.5 1)"
+```
+
+
 ### 2 - Initializing the velocity field
 To reduce CPU-time we give the simulation a starting velocity field, which speeds up the time before the system is "dynamically steady". Run:
 
