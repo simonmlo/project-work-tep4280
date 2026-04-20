@@ -56,6 +56,13 @@ To reduce CPU-time we give the simulation a starting velocity field, which speed
 setFields
 ```
 
+A better solution, instead of using setFields, would be to overwrite the first timestep with the latest data from the previous simulation. However this has a few setbacks, because you would have to first run the simulation once for all the different mesh resolutions. Since we are going to do multiple simulations for every mesh resolution, this is a better idea than using setFields.
+
+```bash
+cp -r 200/U 0/U
+cp -r 200/p 0/p
+```
+
 ### Proper icoFoam-Reference Pre-Processing
 ```bash
 blockMesh -dict caseDict/blockMeshDict		# Creates the correct mesh
